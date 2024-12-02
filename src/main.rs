@@ -48,6 +48,7 @@ fn run_input(day: usize) {
     let file = format!("inputs/day{:02}.txt", day);
     match day {
         1 => days::day01::Day01::run(&file),
+        2 => days::day02::Day02::run(&file),
         _ => println!("unknown day"),
     };
 }
