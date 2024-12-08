@@ -4,6 +4,8 @@ pub mod day01;
 pub mod day02;
 pub mod day03;
 pub mod day04;
+pub mod day05;
+
 pub trait Day {
     type Input;
     fn parse_input(input: &str) -> Self::Input;

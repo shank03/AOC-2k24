@@ -51,6 +51,7 @@ fn run_input(day: usize) {
         2 => days::day02::Day02::run(&file),
         3 => days::day03::Day03::run(&file),
         4 => days::day04::Day04::run(&file),
+        5 => days::day05::Day05::run(&file),
         _ => println!("unknown day"),
     };
 }
