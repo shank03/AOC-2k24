@@ -3,3 +3,4 @@
 inputs
 target
 *.lock
+**/*.DS_Store
