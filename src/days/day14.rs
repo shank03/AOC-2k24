@@ -38,9 +38,9 @@ impl Day for Day14 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let (i, j) = input
-            .into_iter()
+            .iter()
             .fold((0, 0), |(i_a, j_a), b| (i_a.max(b.pos.0), j_a.max(b.pos.1)));
         let (i, j) = (i + 1, j + 1);
         let (mid_i, mid_j) = (i / 2, j / 2);
@@ -87,9 +87,7 @@ impl Day for Day14 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
-        let mut input: Vec<_> = input.into_iter().cloned().collect();
-
+    fn part_2(mut input: Self::Input) -> Self::OP2 {
         let (i, j) = input
             .iter()
             .fold((0, 0), |(i_a, j_a), b| (i_a.max(b.pos.0), j_a.max(b.pos.1)));

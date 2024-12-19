@@ -51,9 +51,9 @@ impl Day for Day02 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         input.into_iter().fold(0, |acc, level| {
-            if Self::is_level_safe(level) {
+            if Self::is_level_safe(&level) {
                 acc + 1
             } else {
                 acc
@@ -62,9 +62,9 @@ impl Day for Day02 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         input.into_iter().fold(0, |acc, level| {
-            if Self::is_level_safe(level) || Self::dampen_error_safe(level) {
+            if Self::is_level_safe(&level) || Self::dampen_error_safe(&level) {
                 acc + 1
             } else {
                 acc

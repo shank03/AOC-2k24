@@ -9,10 +9,10 @@ impl Day for Day03 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let re = regex::Regex::new(r"mul\([0-9]+,[0-9]+\)").unwrap();
         let mut res = 0;
-        for cap in re.captures_iter(input) {
+        for cap in re.captures_iter(&input) {
             for mul in cap.iter() {
                 if let Some(mul) = mul {
                     let bracket = mul.as_str().split('(').last().unwrap();
@@ -28,12 +28,12 @@ impl Day for Day03 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         let re = regex::Regex::new(r"do\(\)|don't\(\)|mul\([0-9]+,[0-9]+\)").unwrap();
         let mut enabled = true;
-        for cap in re.captures_iter(input) {
+        for cap in re.captures_iter(&input) {
             for mul in cap.iter() {
                 if let Some(mul) = mul {
                     match mul.as_str() {

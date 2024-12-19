@@ -11,19 +11,19 @@ impl Day for Day09 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let mut res = 0;
 
         let mut id = 0i64;
         let mut blocks = Vec::with_capacity(input.len());
         input.into_iter().enumerate().for_each(|(i, b)| {
             if i % 2 == 0 {
-                for _ in 0..*b {
+                for _ in 0..b {
                     blocks.push(id);
                 }
                 id += 1;
             } else {
-                for _ in 0..*b {
+                for _ in 0..b {
                     blocks.push(-1);
                 }
             }
@@ -56,19 +56,19 @@ impl Day for Day09 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         let mut id = 0i64;
         let mut blocks = Vec::with_capacity(input.len());
         input.into_iter().enumerate().for_each(|(i, b)| {
             if i % 2 == 0 {
-                for _ in 0..*b {
+                for _ in 0..b {
                     blocks.push(id);
                 }
                 id += 1;
             } else {
-                for _ in 0..*b {
+                for _ in 0..b {
                     blocks.push(-1);
                 }
             }
@@ -139,12 +139,12 @@ mod test09 {
     #[test]
     fn part1() {
         let input = super::Day09::parse_input(TEST_INPUT);
-        assert_eq!(super::Day09::part_1(&input), 1928);
+        assert_eq!(super::Day09::part_1(input), 1928);
     }
 
     #[test]
     fn part2() {
         let input = super::Day09::parse_input(TEST_INPUT);
-        assert_eq!(super::Day09::part_2(&input), 2858);
+        assert_eq!(super::Day09::part_2(input), 2858);
     }
 }

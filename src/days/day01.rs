@@ -35,26 +35,26 @@ impl Day for Day01 {
 
     type OP1 = u64;
 
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let (st, dst) = input;
 
         st.into_iter()
             .zip(dst)
-            .fold(0, |acc, (a, b)| acc + a.abs_diff(*b))
+            .fold(0, |acc, (a, b)| acc + a.abs_diff(b))
     }
 
     type OP2 = u64;
 
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let (st, dst) = input;
 
         let mut map = HashMap::<u64, u64>::new();
-        dst.into_iter().for_each(|b| match map.get_mut(b) {
+        dst.into_iter().for_each(|b| match map.get_mut(&b) {
             Some(v) => *v += 1,
-            None => map.insert(*b, 1).map(|_| ()).unwrap_or(()),
+            None => map.insert(b, 1).map(|_| ()).unwrap_or(()),
         });
 
         st.into_iter()
-            .fold(0, |acc, a| acc + (a * map.get(a).unwrap_or(&0)))
+            .fold(0, |acc, a| acc + (a * map.get(&a).unwrap_or(&0)))
     }
 }

@@ -77,10 +77,10 @@ impl Day for Day06 {
     }
 
     type OP1 = u64;
-    fn part_1(grid: &Self::Input) -> Self::OP1 {
+    fn part_1(grid: Self::Input) -> Self::OP1 {
         let mut gj = 0;
         let mut gi = grid
-            .into_iter()
+            .iter()
             .position(|r| match r.into_iter().position(|c| c == &'^') {
                 Some(j) => {
                     gj = j;
@@ -142,12 +142,12 @@ impl Day for Day06 {
     }
 
     type OP2 = u64;
-    fn part_2(grid: &Self::Input) -> Self::OP2 {
+    fn part_2(grid: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         let mut gj = 0;
         let gi = grid
-            .into_iter()
+            .iter()
             .position(|r| match r.into_iter().position(|c| c == &'^') {
                 Some(j) => {
                     gj = j;

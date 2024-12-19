@@ -92,7 +92,7 @@ impl Day for Day10 {
     }
 
     type OP1 = i32;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let mut res = 0;
 
         for i in 0..input.len() {
@@ -108,7 +108,7 @@ impl Day for Day10 {
     }
 
     type OP2 = i32;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         for i in 0..input.len() {

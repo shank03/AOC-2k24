@@ -50,11 +50,11 @@ impl Day for Day07 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let mut res = 0;
 
         for (target, operands) in input.into_iter() {
-            if Self::dp(*target, operands, operands[0], 1) {
+            if Self::dp(target, &operands, operands[0], 1) {
                 res += target;
             }
         }
@@ -63,11 +63,11 @@ impl Day for Day07 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         for (target, operands) in input.into_iter() {
-            if Self::dp_or(*target, operands, operands[0], 1) {
+            if Self::dp_or(target, &operands, operands[0], 1) {
                 res += target;
             }
         }
@@ -93,6 +93,6 @@ mod test07 {
     #[test]
     fn part1() {
         let input = super::Day07::parse_input(TEST_INPUT);
-        assert_eq!(super::Day07::part_1(&input), 3749);
+        assert_eq!(super::Day07::part_1(input), 3749);
     }
 }

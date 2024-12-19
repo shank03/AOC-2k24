@@ -9,7 +9,7 @@ impl Day for Day04 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         let mut res = 0;
         let mut lines = Vec::<String>::new();
 
@@ -103,7 +103,7 @@ impl Day for Day04 {
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         for i in 1..(input.len() - 1) {

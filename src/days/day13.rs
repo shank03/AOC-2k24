@@ -92,16 +92,16 @@ impl Day for Day13 {
     }
 
     type OP1 = isize;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
+    fn part_1(input: Self::Input) -> Self::OP1 {
         input.into_iter().fold(0, |acc, claw| {
             let mut tb = HashMap::new();
-            let r = Self::dp(claw, (0, 0), &mut tb);
+            let r = Self::dp(&claw, (0, 0), &mut tb);
             acc + if r == isize::MAX { 0 } else { r }
         })
     }
 
     type OP2 = isize;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
+    fn part_2(input: Self::Input) -> Self::OP2 {
         let valid = |a: (isize, isize), b: (isize, isize)| -> bool {
             (a.0 / a.1) == (b.0 / b.1) && ((a.0 % a.1) * b.1) == ((b.0 % b.1) * a.1)
         };

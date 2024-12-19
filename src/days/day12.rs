@@ -154,7 +154,7 @@ impl Day for Day12 {
     }
 
     type OP1 = u64;
-    fn part_1(garden: &Self::Input) -> Self::OP1 {
+    fn part_1(garden: Self::Input) -> Self::OP1 {
         let mut res = 0;
 
         let mut visited = vec![vec![false; garden[0].len()]; garden.len()];
@@ -164,7 +164,7 @@ impl Day for Day12 {
                     continue;
                 }
 
-                let mut coords = Self::traverse(garden, (i, j), garden[i][j], &mut visited);
+                let mut coords = Self::traverse(&garden, (i, j), garden[i][j], &mut visited);
                 coords.sort();
 
                 res += Self::get_cost(coords);
@@ -175,7 +175,7 @@ impl Day for Day12 {
     }
 
     type OP2 = u64;
-    fn part_2(garden: &Self::Input) -> Self::OP2 {
+    fn part_2(garden: Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         let mut visited = vec![vec![false; garden[0].len()]; garden.len()];
@@ -186,7 +186,7 @@ impl Day for Day12 {
                     continue;
                 }
 
-                let mut coords = Self::traverse(garden, (i, j), garden[i][j], &mut visited);
+                let mut coords = Self::traverse(&garden, (i, j), garden[i][j], &mut visited);
                 coords.sort();
 
                 res += Self::get_discount(coords);

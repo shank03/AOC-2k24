@@ -49,13 +49,13 @@ impl Day for Day05 {
     }
 
     type OP1 = u64;
-    fn part_1((map, _, queries): &Self::Input) -> Self::OP1 {
+    fn part_1((map, _, queries): Self::Input) -> Self::OP1 {
         let mut res = 0;
 
         for query in queries.into_iter() {
             let mut valid_arr = true;
             let len = query.len();
-            for (i, item) in query.into_iter().enumerate() {
+            for (i, item) in query.iter().enumerate() {
                 if let Some(list) = map.get(item) {
                     let mut valid = 0;
                     let mut j = i + 1;
@@ -89,7 +89,7 @@ impl Day for Day05 {
     }
 
     type OP2 = u64;
-    fn part_2((ordered, rev_ordered, queries): &Self::Input) -> Self::OP2 {
+    fn part_2((ordered, rev_ordered, queries): Self::Input) -> Self::OP2 {
         let mut res = 0;
 
         for query in queries.into_iter().filter(|q| {

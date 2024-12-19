@@ -68,12 +68,12 @@ impl Day for Day11 {
     }
 
     type OP1 = u64;
-    fn part_1(input: &Self::Input) -> Self::OP1 {
-        Self::blinks(input, 25)
+    fn part_1(input: Self::Input) -> Self::OP1 {
+        Self::blinks(&input, 25)
     }
 
     type OP2 = u64;
-    fn part_2(input: &Self::Input) -> Self::OP2 {
-        Self::blinks(input, 75)
+    fn part_2(input: Self::Input) -> Self::OP2 {
+        Self::blinks(&input, 75)
     }
 }
