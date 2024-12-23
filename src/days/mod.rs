@@ -1,4 +1,4 @@
-use std::{fmt::Display, fs};
+use std::{fmt::Debug, fs};
 
 pub mod day01;
 pub mod day02;
@@ -14,15 +14,16 @@ pub mod day12;
 pub mod day13;
 pub mod day14;
 pub mod day15;
+pub mod day17;
 
 pub trait Day {
     type Input;
     fn parse_input(input: &str) -> Self::Input;
 
-    type OP1: Display;
+    type OP1: Debug;
     fn part_1(input: Self::Input) -> Self::OP1;
 
-    type OP2: Display;
+    type OP2: Debug;
     fn part_2(input: Self::Input) -> Self::OP2;
 
     fn read_input(file: &str) -> Self::Input {
@@ -34,10 +35,10 @@ pub trait Day {
     fn run(input_file: &str) {
         let input = Self::read_input(input_file);
         let start = std::time::Instant::now();
-        println!("P1: {} - {:?}", Self::part_1(input), start.elapsed());
+        println!("P1: {:?} - {:?}", Self::part_1(input), start.elapsed());
 
         let input = Self::read_input(input_file);
         let start = std::time::Instant::now();
-        println!("P2: {} - {:?}", Self::part_2(input), start.elapsed());
+        println!("P2: {:?} - {:?}", Self::part_2(input), start.elapsed());
     }
 }
