@@ -1,8 +1,3 @@
-use std::{
-    collections::HashSet,
-    io::{Read, Write},
-};
-
 use super::Day;
 
 pub struct Day22;
@@ -32,7 +27,7 @@ impl Day22 {
     }
 
     fn secret_price(prefix: &mut Vec<(u32, u32)>, id: u32, mut num: usize) {
-        let mut last = 0;
+        let mut last;
         let mut hash = 0u32;
         let mut shifts = 0;
 
