@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use super::Day;
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Hash, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Clone, Copy)]
 pub enum Direction {
     Up,
     Down,
