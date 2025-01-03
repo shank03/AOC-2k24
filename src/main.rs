@@ -66,6 +66,7 @@ fn run_input(day: usize) {
         17 => days::day17::Day17::run(&file),
         18 => days::day18::Day18::run(&file),
         19 => days::day19::Day19::run(&file),
+        21 => days::day21::Day21::run(&file),
         22 => days::day22::Day22::run(&file),
         23 => days::day23::Day23::run(&file),
         24 => days::day24::Day24::run(&file),
